@@ -40,7 +40,10 @@ SECRET_KEY = 'django-insecure-pvak0ycx^pj9vms-11@gy-w7u8sczp93u)@p3u^q9rnble&3#y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*","https://tina-hood.herokuapp.com/"]
+CSRF_TRUSTED_ORIGINS = ['https://tina-hood.herokuapp.com/','https://*.herokuapp.com']
+
+
 
 
 # Application definition
@@ -95,11 +98,19 @@ WSGI_APPLICATION = 'hood.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
+#DATABASE-URL="postgres://poiydzdyodvimy:6bda51f9799a734be262ef826fe9c8275143248c04dd7cf79d4cf58771c950f0@ec2-52-22-136-117.compute-1.amazonaws.com:5432/d7cmtffu2ht9lo"
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd7cmtffu2ht9lo',
+        'USER': 'poiydzdyodvimy',
+        'PASSWORD': '6bda51f9799a734be262ef826fe9c8275143248c04dd7cf79d4cf58771c950f0',
+        'HOST': 'ec2-52-22-136-117.compute-1.amazonaws.com',
+        'PORT': '5432',
+
+
+        
     }
 }
 
