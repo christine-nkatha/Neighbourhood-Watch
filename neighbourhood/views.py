@@ -34,7 +34,7 @@ class EmailThread(threading.Thread):
         'token': account_activation_token.make_token(user)
     })
 
-    email = EmailMessage(subject=email_subject, body=email_body,
+    email = EmailMessage(subject= email_subject, body=email_body,
     from_email=settings.EMAIL_FROM_USER, to=[User.email])
 
     if not settings.TESTING:
