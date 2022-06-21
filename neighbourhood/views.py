@@ -34,11 +34,11 @@ class EmailThread(threading.Thread):
         'token': account_activation_token.make_token(user)
     })
 
-    email = EmailMessage(subject= email_subject, body=email_body,
-    from_email=settings.EMAIL_FROM_USER, to=[User.email])
+       email = EmailMessage(subject= email_subject, body=email_body,
+       from_email=settings.EMAIL_FROM_USER, to=[User.email])
 
-    if not settings.TESTING:
-        EmailThread(email).start()
+       if not settings.TESTING:
+          EmailThread(email).start()
 
 def Register(request):
     if request.method == 'POST':
@@ -68,7 +68,7 @@ def Register(request):
         user.save()
 
         if not context['has_error']:
-            send_activation_email(user, request)
+           # send_activation_email(user, request)
             messages.success(request, '✅ Regristration Successful! An Activation Link Has Been Sent To Your Email')
             return redirect('Register')
 
