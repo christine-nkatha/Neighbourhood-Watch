@@ -71,7 +71,7 @@ class NeighbourHood(models.Model):
     location = models.CharField(max_length=150, verbose_name='Neighbourhood Location', null=True, blank=True)
     county = models.CharField(choices=COUNTIES, max_length=150, verbose_name='Neighbourhood County', null=True, blank=True)
     neighbourhood_logo = CloudinaryField('neighbourhood_logo')
-    # neighbourhood_logo = models.ImageField(upload_to='Neighbourhood-Logo', verbose_name='Neighbourhood-Logo')
+    #neighbourhood_logo = models.ImageField(upload_to='Neighbourhood-Logo', verbose_name='Neighbourhood-Logo')
     neighbourhood_admin = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Neighbourhood Admin')
     health_department = models.CharField(max_length=15, null=True, blank=True, verbose_name='Health Department')
     police_department = models.CharField(max_length=15, null=True, blank=True, verbose_name='Police Department')
