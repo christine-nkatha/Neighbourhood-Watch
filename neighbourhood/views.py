@@ -64,7 +64,7 @@ def Register(request):
 
         user = User.objects.create_user(first_name=first_name, last_name=last_name, username=username, email=email)
         user.set_password(password1)
-        user.is_active = False
+        user.is_active = True
         user.save()
 
         if not context['has_error']:
@@ -95,8 +95,11 @@ def Login(request):
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
+        print(username)
+        print(password)
 
         user = authenticate(username=username, password=password)
+        print(user)
 
         if not User.objects.filter(username=username).exists():
             messages.error(request, '⚠️ Username Does Not Exist! Choose Another One')
@@ -108,7 +111,7 @@ def Login(request):
 
         if user is not None:
             login(request, user)
-            return redirect('Home')
+            return redirect('/{}/neighbourhoods'.format(user.username))
         
     return render(request, 'Login.html')
 
